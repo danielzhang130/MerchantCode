@@ -1,0 +1,2 @@
+export XDEBUG_CONFIG=idekey=session_name
+export PHP_IDE_CONFIG=serverName=localhost

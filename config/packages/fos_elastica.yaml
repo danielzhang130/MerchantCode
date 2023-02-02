@@ -1,0 +1,29 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
+# Base config: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/tests/Functional/app/Basic/config.yml
+fos_elastica:
+    clients:
+        default:
+            connections:
+                - url: '%env(ELASTICSEARCH_URL)%'
+                - host: '%es_host%'
+                - port: '%es_port%'
+
+    indexes:
+        merchant:
+            settings:
+                analysis:
+                    analyzer:
+                        default:
+                            type: custom
+                            tokenizer: standard
+                            filter: [lowercase, elision, language_stop, asciifolding, word_delimiter_graph]
+                    filter:
+                        language_stop:
+                            type: stop
+                            ignore_case: true
+                            stopwords: [_english_]
+            properties:
+                name: ~
+            persistence:
+                driver: orm
+                model: App\DB\Entity\Merchant

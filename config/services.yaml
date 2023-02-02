@@ -1,0 +1,52 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+  es_host: "%env(ES_HOST)%"
+  es_port: "%env(ES_PORT)%"
+  dkim.private.key: "%kernel.project_dir%/.dkim/private.key"
+
+  #      This can drastically improve DX by reducing the time to load classes
+  container.dumper.inline_class_loader: true
+
+
+services:
+
+  security.acl.permission.map:
+    class: Sonata\AdminBundle\Security\Acl\Permission\AdminPermissionMap
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    #
+    # setup special, global auto wiring rules:
+    #
+    #   Here one can bind variable names to specific parameters or services. This allows dependency injection
+    #   of specific strings or classes. E.g $kernel_root_dir used as parameter in an constructor signals the
+    #   dependency service that the "kernel.root_dir" parameter string must be injected.
+    #
+    #   It is also possible to inject the ParameterBagInterface with which one has easy access to all defined parameters
+    #
+  #    bind:
+  #      $kernel_root_dir: "%kernel.root_dir%"
+  #      $program_finder: '@fos_elastica.finder.app_program'
+  #      $user_finder: '@fos_elastica.finder.app_user'
+  #      $refresh_token_ttl: '%lexik_jwt_authentication.token_ttl%'
+  #      $dkim_private_key_path: "%dkim.private.key%"
+  App\Commands\:
+    resource: '../src/Commands'
+    tags:
+      - { name: console.command }
+
+  App\Utils\MerchantSearch:
+    arguments:
+      - '@fos_elastica.finder.merchant'
+
+  App\Utils\TreeTransformer:
+
+  App\API\DefaultController:
+    public: true

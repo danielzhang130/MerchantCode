@@ -1,0 +1,6 @@
+/vendor/
+/assets/desjardins.json
+/.env.local
+/manual.json
+/out.json
+/sample.out.json
