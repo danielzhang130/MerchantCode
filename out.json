@@ -1,0 +1,76 @@
+{
+  "Food": {
+    "Restaurants": [
+      "Timeout Market - Le Taj",
+      "Burger King",
+      "Services Alimentaires PolyMTL Universite de Montreal",
+      "St Hubert",
+      "Restaurant Amir",
+      "Dagwoods",
+      "Dana Hospitality Lp",
+      "Uber Canada ubereats",
+      "Skipthedishes",
+      "Harveys",
+      "Boston Pizza",
+      "Beavertails",
+      "Mandy's",
+      "Uw Tim Hortons Slc",
+      "Kinoya",
+      "Goodfellas Wood Oven P",
+      "Tomo Sushi",
+      "Tim Hortons",
+      "Kismet Restaurant",
+      "Pizzaville"
+    ],
+    "Groceries": [
+      "CHEFS PLATE",
+      "Premiere Moisson"
+    ]
+  },
+  "Transportation": {
+    "Alternative transportation": [
+      "Stm Peel",
+      "Presto Port Credit"
+    ],
+    "Fuel": [
+      "Pioneer Stn"
+    ]
+  },
+  "Miscellaneous": {
+    "Professional services": [
+      "Backblaze"
+    ]
+  },
+  "Telecommunications": {
+    "Television": [
+      "Www.f1.com"
+    ],
+    "Phone": [
+      "Public Mobile"
+    ]
+  },
+  "Leisure": {
+    "Leisure - Other": [
+      "Bixi Montreal",
+      "Tempo Framing Systems"
+    ]
+  },
+  "Retail stores": {
+    "Retail stores - Other": [
+      "Paypal Vireo De"
+    ],
+    "Electronics/Technology": [
+      "DIGIKEY CORP"
+    ]
+  },
+  "Health": {
+    "Pharmacy/Medication": [
+      "Shoppers Drug Mart"
+    ]
+  },
+  "Home": {
+    "Upkeep and renovations": [
+      "Home Depot"
+    ]
+  }
+}
