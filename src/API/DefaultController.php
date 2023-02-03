@@ -31,6 +31,10 @@ class DefaultController
 
         $q = $request->query->get('q');
 
+        if (!trim($q)) {
+            return JsonResponse::create([]);
+        }
+
         $results = $this->merchantSearch->search($q);
         $results_partial = $this->merchantSearch->searchWildcard($q);
         return JsonResponse::create([
