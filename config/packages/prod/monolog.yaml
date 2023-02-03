@@ -52,7 +52,7 @@ monolog:
       path: "%kernel.logs_dir%/%kernel.environment%/soft/soft.log"
       max_files: 7
       level: warning
-      formatter: monolog.formatter.catrobat_custom_formatter
+#      formatter: monolog.formatter.catrobat_custom_formatter
 
     ##-------------------------------------------------------------------------------------------
     ## Debug Logging
@@ -63,7 +63,7 @@ monolog:
       level: debug
       max_files: 3
       channels: [ search ]
-      formatter: monolog.formatter.catrobat_custom_formatter
+#      formatter: monolog.formatter.catrobat_custom_formatter
 
     download:
       type: rotating_file
@@ -71,7 +71,7 @@ monolog:
       level: debug
       max_files: 3
       channels: [ download ]
-      formatter: monolog.formatter.catrobat_custom_formatter
+#      formatter: monolog.formatter.catrobat_custom_formatter
 
     # ---------------------------------------------------------------------------------------------
     # Console Logging
