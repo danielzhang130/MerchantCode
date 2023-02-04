@@ -36,7 +36,12 @@ class DefaultController
         }
 
         $results = $this->merchantSearch->search($q);
-        $results_partial = $this->merchantSearch->searchWildcard($q);
+        $limit = 5 - sizeof($results);
+        if ($limit < 1) {
+            $results_partial = [];
+        } else {
+            $results_partial = $this->merchantSearch->searchWildcard($q, $limit);
+        }
         return JsonResponse::create([
             "exact" => $this->treeTransformer->toTree($results),
             "partial" => $this->treeTransformer->toTree($results_partial),

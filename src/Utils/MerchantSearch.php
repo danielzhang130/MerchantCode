@@ -21,7 +21,7 @@ class MerchantSearch
         return $this->finder->find($keyword);
     }
 
-    public function searchWildcard($keyword): array
+    public function searchWildcard($keyword, $limit): array
     {
         $term = new Wildcard('name', $keyword . '*');
 
@@ -32,6 +32,6 @@ class MerchantSearch
         $bool->addMust($term);
         $bool->addMustNot($termNot);
 
-        return $this->finder->find($bool);
+        return $this->finder->find($bool, $limit);
     }
 }
