@@ -18,7 +18,7 @@ class MerchantSearch
 
     public function search($keyword): array
     {
-        return $this->finder->find($keyword);
+        return $this->finder->find('"'.$keyword.'"');
     }
 
     public function searchWildcard($keyword, $limit): array
