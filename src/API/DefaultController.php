@@ -38,8 +38,8 @@ class DefaultController
         $results = $this->merchantSearch->search($q);
         $results_partial = $this->merchantSearch->searchWildcard($q);
         return JsonResponse::create([
-            $this->treeTransformer->toTree($results),
-            $this->treeTransformer->toTree($results_partial),
+            "exact" =>$this->treeTransformer->toTree($results),
+            "partial" => $this->treeTransformer->toTree($results_partial),
         ]);
     }
 }
