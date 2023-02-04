@@ -7,20 +7,17 @@ use App\Utils\TreeTransformer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController
 {
     private MerchantSearch $merchantSearch;
     private TreeTransformer $treeTransformer;
-    private KernelInterface $kernel;
 
-    public function __construct(MerchantSearch $merchantSearch, TreeTransformer $treeTransformer, KernelInterface $kernel)
+    public function __construct(MerchantSearch $merchantSearch, TreeTransformer $treeTransformer)
     {
         $this->merchantSearch = $merchantSearch;
         $this->treeTransformer = $treeTransformer;
-        $this->kernel = $kernel;
     }
 
     /**
@@ -40,7 +37,7 @@ class DefaultController
 
         $results = $this->merchantSearch->search($q);
         $limit = 5 - sizeof($results);
-        if ($this->kernel->isDebug() && $request->query->has('nolimit')) {
+        if ($_SERVER['APP_DEBUG'] && $request->query->has('nolimit')) {
             $results_partial = $this->merchantSearch->searchWildcard($q, null);
         } else if ($limit < 1) {
             $results_partial = [];
